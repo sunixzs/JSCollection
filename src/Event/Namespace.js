@@ -4,29 +4,25 @@
  * https://stackoverflow.com/questions/21817397/event-handler-namespace-in-vanilla-javascript/21817552
  */
 define(function() {
-    var events = {
-        on(event, cb, opts) {
-            if (!this.namespaces) {
-                // save the namespaces on the DOM element itself
-                this.namespaces = {};
-            }
+    "use strict";
 
-            this.namespaces[event] = cb;
+    var NamespacedEvent = function () {
+        var namespaces = {};
+
+        this.on = function (event, cb, opts) {
+            namespaces[event] = cb;
             var options = opts || false;
 
             this.addEventListener(event.split(".")[0], cb, options);
             return this;
-        },
-        off(event) {
-            this.removeEventListener(event.split(".")[0], this.namespaces[event]);
-            delete this.namespaces[event];
+        };
+
+        this.off = function (event) {
+            this.removeEventListener(event.split(".")[0], namespaces[event]);
+            delete namespaces[event];
             return this;
         }
     };
 
-    // Extend the DOM with these above custom methods
-    window.on = document.on = Element.prototype.on = events.on;
-    window.off = document.off = Element.prototype.off = events.off;
-    
-    return events;
+    return NamespacedEvent;
 });
