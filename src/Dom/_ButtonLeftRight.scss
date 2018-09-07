@@ -1,0 +1,95 @@
+//@import "../variables";
+
+// Big rounded buttons left and right
+// p.e. to switch a slider
+// use this markup for the left button:
+// <div class="pmc-button-right">
+//    <div class="pmc-button-icon">
+//        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M199.55,177.05l-136,136a23.901,23.901,0,0,1-33.9,0l-22.6-22.6a23.901,23.901,0,0,1,0-33.9l96.4-96.4L7.05,63.75a23.901,23.901,0,0,1,0-33.9l22.5-22.8a23.901,23.901,0,0,1,33.9,0l136,//136A23.932,23.932,0,0,1,199.55,177.05Z"></path></svg>
+//    </div>
+// </div>
+//
+// use this markup for the right button:
+// <div class="pmc-button-left">
+//    <div class="pmc-button-icon">
+//        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M7.0375,143.05l136-136a23.901,23.901,0,0,1,33.9,0l22.6,22.6a23.901,23.901,0,0,1,0,33.9l-96.4,96.4,96.4,96.4a23.901,23.901,0,0,1,0,33.9l-22.5,22.8a23.9009,23.9009,0,0,1-33.9,0l-136-136A23.9321,23.9321,0,0,1,7.0375,143.05Z"></path></svg>
+//    </div>
+// </div>
+//
+// You can also generate buttons:
+//
+// this.btnLeft = new PMC.Dom.Element();
+// this.btnLeft.setType("button-left", {
+//     onclick: function(evt) {
+//     },
+//     appendTo: this.container
+// });
+//
+// this.btnRight = new PMC.Dom.Element();
+// this.btnRight.setType("button-right", {
+//     onclick: function(evt) {
+//     },
+//     appendTo: this.container
+// });
+
+.jsc-button-left,
+.jsc-button-right {
+    position: absolute;
+    top: 43%;
+    border-radius: 1000px;
+    width: $button-width;
+    height: $button-height;
+    transform: translateY(-50%);
+    background-color: $button-background-color;
+    transition: background-color ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.jsc-button-icon {
+    position: absolute;
+    width: $button-icon-width;
+    height: $button-icon-height;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    svg {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: $button-icon-svg-height;
+        width: auto;
+
+        path {
+            fill: $button-icon-svg-color;
+            transition: fill ease-in-out 0.3s;
+        }
+    }
+}
+
+.jsc-button-left {
+    left: 1%;
+    .jsc-button-icon svg {
+        left: 45%;
+    }
+}
+
+.jsc-button-right {
+    right: 1%;
+    .jsc-button-icon svg {
+        left: 55%;
+    }
+}
+
+#{$no-touch-event-selector} .jsc-button-left:hover,
+#{$no-touch-event-selector} .jsc-button-right:hover {
+    background-color: $button-background-color-hover;
+
+    .jsc-button-icon {
+        svg {
+            path {
+                fill: $button-icon-svg-color-hover;
+            }
+        }
+    }
+}

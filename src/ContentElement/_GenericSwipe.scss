@@ -1,0 +1,37 @@
+//@import "../variables";
+
+.ce-generic-swipe {
+    position: relative;
+
+    .contentelements-wrap {
+        position: relative;
+        overflow: hidden;
+        cursor: move;
+    }
+
+    .contentelements {
+        white-space: nowrap;
+        min-height: inherit; // for equal height which will be set on .contentelements-wrap with JSCollection/ContentElement/GenericSwipe()
+
+        .contentelement {
+            display: inline-block;
+            vertical-align: top;
+            min-height: inherit; // for equal height which will be set on .contentelements-wrap with JSCollection/ContentElement/GenericSwipe()
+
+            & > * {
+                white-space: normal;
+                min-height: inherit; // for equal height which will be set on .contentelements-wrap with JSCollection/ContentElement/GenericSwipe()
+            }
+        }
+    }
+
+    &.ce-generic-swipe-space {
+        .contentelements {
+            .contentelement {
+                & > * {
+                    margin-right: $generic-swipe-grid-space;
+                }
+            }
+        }
+    }
+}

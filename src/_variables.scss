@@ -1,0 +1,26 @@
+// selector to handle :hover on normal desktops
+// it is to avoid :hover stuff on touch devices
+$no-touch-event-selector: "html.no-touchevents";
+
+
+// ContentElement/_GenericSwipe.scss
+$generic-swipe-grid-space: 0.75rem;
+
+
+
+// Buttons
+
+// outer button
+$button-width: 64px;
+$button-height: 64px;
+$button-background-color: white;
+$button-background-color-hover: rgba(black, 0.8);
+
+// inner button
+$button-icon-width: 3rem;
+$button-icon-height: 3rem;
+
+// SVG icon in inner button
+$button-icon-svg-height: 70%;
+$button-icon-svg-color: black;
+$button-icon-svg-color-hover: rgba(white, 0.8);
