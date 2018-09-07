@@ -1,0 +1,2 @@
+define(function(){var events={on(event,cb,opts){if(!this.namespaces){this.namespaces={}}
+this.namespaces[event]=cb;var options=opts||!1;this.addEventListener(event.split(".")[0],cb,options);return this},off(event){this.removeEventListener(event.split(".")[0],this.namespaces[event]);delete this.namespaces[event];return this}};window.on=document.on=Element.prototype.on=events.on;window.off=document.off=Element.prototype.off=events.off;return events})

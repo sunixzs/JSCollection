@@ -1,0 +1,22 @@
+{
+    "name": "sunixzs/JSCollection",
+    "description": "A package of some often used scripts. Just to avoid loading several small packages.",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "sunixzs/JavaScriptMinifier",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/sunixzs/JavaScriptMinifier.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "matthiasmullie/minify": "1.3.60",
+        "sunixzs/JavaScriptMinifier": "master@dev"
+    }
+}
