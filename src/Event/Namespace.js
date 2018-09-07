@@ -2,6 +2,10 @@
  * Defines namespaced events
  * https://gist.github.com/yairEO/cb60592476a4204b27e83048949dbb45
  * https://stackoverflow.com/questions/21817397/event-handler-namespace-in-vanilla-javascript/21817552
+ * 
+ * var NSE = new NamespacedEvent();
+ * window.on = document.on = NSE.on;
+ * window.off = document.off = NSE.off;
  */
 define(function() {
     "use strict";
