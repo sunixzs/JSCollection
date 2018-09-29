@@ -44,7 +44,7 @@
 define(["JSCollection/Dom/Element", "Dragdealer"], function(DomElement, Dragdealer) {
     "use strict";
 
-    function GenericSwipe(container, params) {
+    function GenericSwipe(container, params, deviceOverride) {
         if (typeof container !== "object") {
             console.warn("ERROR: missing param", this, container);
         }
@@ -115,12 +115,16 @@ define(["JSCollection/Dom/Element", "Dragdealer"], function(DomElement, Dragdeal
         _contentelements = _defineDomElementParam("contentelements", _contentelementWrapper, ".contentelements > .contentelement", false);
 
         // try to set the device stuff
-        for (var device in _queries) {
-            if (_queries.hasOwnProperty(device)) {
-                _defineQueryParam(device, "columns", "number");
-                _defineQueryParam(device, "min", "number");
-                _defineQueryParam(device, "max", "number");
-                _defineQueryParam(device, "arrowNavigation", "boolean");
+        if (typeof deviceOverride === "object") {
+            _queries = deviceOverride;
+        } else {
+            for (var device in _queries) {
+                if (_queries.hasOwnProperty(device)) {
+                    _defineQueryParam(device, "columns", "number");
+                    _defineQueryParam(device, "min", "number");
+                    _defineQueryParam(device, "max", "number");
+                    _defineQueryParam(device, "arrowNavigation", "boolean");
+                }
             }
         }
 
