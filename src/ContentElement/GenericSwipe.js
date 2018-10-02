@@ -57,6 +57,9 @@ define(["JSCollection/Dom/Element", "Dragdealer"], function(DomElement, Dragdeal
             arrowNavigation: true
         };
         var _dragdealer = null;
+        this.getDragdealer = function () {
+            return _dragdealer;
+        };
         var _wrapper = null;
         var _contentelementWrapper = null;
         var _contentelements = null;

@@ -5,12 +5,22 @@ define(function() {
      * Small class for simple DIV-elements
      */
     function DomElement(node) {
-        var svg = {
-            arrowRight:
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M199.55,177.05l-136,136a23.901,23.901,0,0,1-33.9,0l-22.6-22.6a23.901,23.901,0,0,1,0-33.9l96.4-96.4L7.05,63.75a23.901,23.901,0,0,1,0-33.9l22.5-22.8a23.901,23.901,0,0,1,33.9,0l136,136A23.932,23.932,0,0,1,199.55,177.05Z"/></svg>',
-            arrowLeft:
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M7.0375,143.05l136-136a23.901,23.901,0,0,1,33.9,0l22.6,22.6a23.901,23.901,0,0,1,0,33.9l-96.4,96.4,96.4,96.4a23.901,23.901,0,0,1,0,33.9l-22.5,22.8a23.9009,23.9009,0,0,1-33.9,0l-136-136A23.9321,23.9321,0,0,1,7.0375,143.05Z"/></svg>'
+        var settings = {
+            svg: {
+                arrowRight:
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M199.55,177.05l-136,136a23.901,23.901,0,0,1-33.9,0l-22.6-22.6a23.901,23.901,0,0,1,0-33.9l96.4-96.4L7.05,63.75a23.901,23.901,0,0,1,0-33.9l22.5-22.8a23.901,23.901,0,0,1,33.9,0l136,136A23.932,23.932,0,0,1,199.55,177.05Z"/></svg>',
+                arrowLeft:
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M7.0375,143.05l136-136a23.901,23.901,0,0,1,33.9,0l22.6,22.6a23.901,23.901,0,0,1,0,33.9l-96.4,96.4,96.4,96.4a23.901,23.901,0,0,1,0,33.9l-22.5,22.8a23.9009,23.9009,0,0,1-33.9,0l-136-136A23.9321,23.9321,0,0,1,7.0375,143.05Z"/></svg>'
+            },
+            classes: {
+                btnLeft: "jsc-button-left",
+                btnRight: "jsc-button-right",
+                btnIcon: "jsc-button-icon"
+            }
         };
+        if (typeof DomElementSettings === "object") {
+            settings = DomElementSettings;
+        }
 
         // create element
         this.elem = null;
@@ -112,18 +122,18 @@ define(function() {
          */
         this.setType = function(type, params) {
             if (type === "button-left") {
-                this.addClass("jsc-button-left");
+                this.addClass(settings.classes.btnLeft);
                 var icon = new DomElement();
-                icon.html(svg.arrowLeft)
-                    .attr("class", "jsc-button-icon")
+                icon.html(settings.svg.arrowLeft)
+                    .attr("class", settings.classes.btnIcon)
                     .appendTo(this.elem);
             }
 
             if (type === "button-right") {
-                this.addClass("jsc-button-right");
+                this.addClass(settings.classes.btnRight);
                 var icon = new DomElement();
-                icon.html(svg.arrowRight)
-                    .attr("class", "jsc-button-icon")
+                icon.html(settings.svg.arrowRight)
+                    .attr("class", settings.classes.btnIcon)
                     .appendTo(this.elem);
             }
 
