@@ -10,12 +10,15 @@ define(function() {
                 arrowRight:
                     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M199.55,177.05l-136,136a23.901,23.901,0,0,1-33.9,0l-22.6-22.6a23.901,23.901,0,0,1,0-33.9l96.4-96.4L7.05,63.75a23.901,23.901,0,0,1,0-33.9l22.5-22.8a23.901,23.901,0,0,1,33.9,0l136,136A23.932,23.932,0,0,1,199.55,177.05Z"/></svg>',
                 arrowLeft:
-                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M7.0375,143.05l136-136a23.901,23.901,0,0,1,33.9,0l22.6,22.6a23.901,23.901,0,0,1,0,33.9l-96.4,96.4,96.4,96.4a23.901,23.901,0,0,1,0,33.9l-22.5,22.8a23.9009,23.9009,0,0,1-33.9,0l-136-136A23.9321,23.9321,0,0,1,7.0375,143.05Z"/></svg>'
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.5876 320.1"><path d="M7.0375,143.05l136-136a23.901,23.901,0,0,1,33.9,0l22.6,22.6a23.901,23.901,0,0,1,0,33.9l-96.4,96.4,96.4,96.4a23.901,23.901,0,0,1,0,33.9l-22.5,22.8a23.9009,23.9009,0,0,1-33.9,0l-136-136A23.9321,23.9321,0,0,1,7.0375,143.05Z"/></svg>',
+                spinner:
+                    '<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"><circle cx="28" cy="75" r="11" fill="#c31514"><animate attributeName="fill-opacity" calcMode="linear" values="0;1;1" keyTimes="0;0.2;1" dur="2" begin="0s" repeatCount="indefinite"></animate></circle><path d="M28 47A28 28 0 0 1 56 75" fill="none" stroke-width="10" stroke="#c31514"><animate attributeName="stroke-opacity" calcMode="linear" values="0;1;1" keyTimes="0;0.2;1" dur="2" begin="0.2s" repeatCount="indefinite"></animate></path><path d="M28 25A50 50 0 0 1 78 75" fill="none" stroke-width="10" stroke="#c31514"><animate attributeName="stroke-opacity" calcMode="linear" values="0;1;1" keyTimes="0;0.2;1" dur="2" begin="0.4s" repeatCount="indefinite"></animate></path></svg>'
             },
             classes: {
                 btnLeft: "jsc-button-left",
                 btnRight: "jsc-button-right",
-                btnIcon: "jsc-button-icon"
+                btnIcon: "jsc-button-icon",
+                spinner: "jsc-spinner-icon"
             }
         };
         if (typeof DomElementSettings === "object") {
@@ -134,6 +137,13 @@ define(function() {
                 var icon = new DomElement();
                 icon.html(settings.svg.arrowRight)
                     .attr("class", settings.classes.btnIcon)
+                    .appendTo(this.elem);
+            }
+
+            if (type === "spinner") {
+                var icon = new DomElement();
+                icon.html(settings.svg.spinner)
+                    .attr("class", settings.classes.spinner)
                     .appendTo(this.elem);
             }
 
