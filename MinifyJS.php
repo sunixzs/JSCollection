@@ -16,5 +16,6 @@ $minifier->addFile(DIR . "src/Event/Namespace.js", DIR . "dist/Event/Namespace.j
 $minifier->addFile(DIR . "src/Page/ScrollActiveClasses.js", DIR . "dist/Page/ScrollActiveClasses.js");
 $minifier->addFile(DIR . "src/Page/ScrolledClasses.js", DIR . "dist/Page/ScrolledClasses.js");
 $minifier->addFile(DIR . "src/ContentElement/GenericSwipe.js", DIR . "dist/ContentElement/GenericSwipe.js");
+$minifier->addFile(DIR . "src/Storage/Local.js", DIR . "dist/Storage/Local.js");
 
 $minifier->minify();
