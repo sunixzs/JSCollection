@@ -11,7 +11,8 @@
             cssClass: "active",
             setOnlyFirstOneActive: false,
             viewportTopMargin: 0,
-            viewportBottomMargin: 0
+            viewportBottomMargin: 0,
+            onUpdate: function () {}
         };
 
         // overwrite default settings
@@ -98,6 +99,10 @@
          * main method to be called
          */
         var updateClassList = function() {
+            if (typeof settings.onUpdate === "function") {
+                settings.onUpdate();
+            }
+
             windowHeight = window.outerHeight - settings.viewportBottomMargin;
 
             var activeSection = "", // the name of the active section
